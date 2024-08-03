@@ -1,6 +1,6 @@
 # app/main.py
 from click import secho
-
+import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -23,7 +23,10 @@ app.add_middleware(
 
 @app.get("/data")
 def read_data():
-    return {"message": "Hello from FastAPI"}
+    x = 5
+    return {
+        "message": f"Hello from backend container: {os.environ.get('HOSTNAME', 'DEFAULT_ENV')}"
+    }
 
 
 def add(a: int, b: int) -> int:
