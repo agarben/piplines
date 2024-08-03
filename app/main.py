@@ -3,7 +3,7 @@ from click import secho
 
 
 def add(a: int, b: int) -> int:
-    return a + b - 1
+    return a + b
 
 
 def subtract(a: int, b: int) -> int:
