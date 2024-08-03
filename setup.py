@@ -1,5 +1,15 @@
 from setuptools import setup, find_packages
 
+
+def parse_requirements(filename):
+    with open(filename, "r") as f:
+        return [
+            line.strip()
+            for line in f
+            if line.strip() and not line.startswith("#")
+        ]
+
+
 setup(
     name="my_project",
     version="0.1.0",
@@ -8,10 +18,7 @@ setup(
     author_email="your.email@example.com",
     url="https://github.com/yourusername/my_project",
     packages=find_packages(include=["app", "app.*"]),
-    install_requires=[
-        # List your project dependencies here, e.g.,
-        # 'numpy>=1.18.0',
-    ],
+    install_requires=parse_requirements("requirements.txt"),
     tests_require=[
         "pytest>=6.0.0",
     ],
