@@ -1,7 +1,14 @@
 # app/main.py
-def add(a, b):
+from click import secho
+
+
+def add(a: int, b: int) -> int:
     return a + b
 
 
-# if __name__ == "__main__":
-#     main()
+def subtract(a: int, b: int) -> int:
+    return a - b
+
+
+def print(s: str) -> None:
+    secho(s, fg="green")
